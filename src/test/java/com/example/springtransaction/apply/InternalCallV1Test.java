@@ -47,6 +47,8 @@ public class InternalCallV1Test {
             printTxInfo();
             log.info("-----------------------");
             internal(); // 자바에서는 앞에 생략하면 this.internal(); 이렇게 this가 default이다.
+            // internal()이 호출하는 클래스 내부에 있으니까 @Transactional 있어도 결과적을 이러한 내부 호출은
+            // 프록시를 거치지 않는다.
         }
 
         @Transactional
