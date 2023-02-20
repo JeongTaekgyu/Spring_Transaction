@@ -1,5 +1,4 @@
-logging:
-  level:
+logging.level:
     org:
       springframework:
         orm:
@@ -11,6 +10,7 @@ logging:
           datasource:
             DataSourceTransactionManager: DEBUG
       hibernate:
+        SQL: DEBUG
         resource:
           transaction: DEBUG
 

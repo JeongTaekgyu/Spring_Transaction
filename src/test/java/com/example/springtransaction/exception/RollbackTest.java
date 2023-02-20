@@ -20,13 +20,15 @@ public class RollbackTest {
     void runtimeException() {
 //        service.runtimeException();
         assertThatThrownBy(() -> service.runtimeException())
-                .isInstanceOf(RuntimeException.class); // RuntimeException 이 발생하므로 트랜잭션이 롤백된다
+                .isInstanceOf(RuntimeException.class);
+        // RuntimeException (Unchecked Exception)이 발생하므로 트랜잭션이 롤백된다
     }
 
     @Test
     void checkedException() {
         assertThatThrownBy(() -> service.checkedException())
-                .isInstanceOf(MyException.class); // MyException 은 Exception 을 상속받은 체크 예외이다. 따라서 예외가 발생해도 트랜잭션이 커밋된다.
+                .isInstanceOf(MyException.class);
+        // MyException 은 Exception 을 상속받은 체크 예외(Checked Exception)이다. 따라서 예외가 발생해도 트랜잭션이 커밋된다.
     }
 
     @Test
